@@ -1,0 +1,77 @@
+{{include_paint_files()}}
+{{extend 'layout.html'}}
+
+<script>
+$(function() {
+		$( "#slider-vertical" ).slider({
+			orientation: "vertical",
+			range: "min",
+			min: 0,
+			max: 10,
+		});
+		
+	});
+	</script>
+        <div id="splash">
+            <p>Loading...</p>
+            <img src="{{=URL('static','images/ajax-loader.gif')}}" />
+        </div>
+
+        <div id="accordion">
+            <h2 id="step-1"><a href="#">Step 1 - Create</a></h2>
+            <div>
+                <div id="canvas-panel" class="block">
+                    <canvas id="drawingCanvas" width="700" height="450"></canvas>
+                    <canvas id="overlay" width="700" height="450"
+                            onSelectStart="setCursor(this); return false;"></canvas>
+                </div>
+
+                <div id="tools-panel" class="block">
+                    <ul>
+                        <li class="tool-panel-button tool-button">
+                            <div id="stroke-colour-tool" class="block, fill">
+                                <p>Colour</p>
+                                <span id="stroke-colour"></span>
+                                <div id="stroke-colour-picker"></div>
+                            </div>
+                        </li>
+                        <li class="tool-panel-button tool-button selected">
+                            <img id="pencil-tool" src="{{=URL('static','images/tools_panel_pencil_button.png')}}" class="block, fill" />
+                        </li>
+                        <li class="tool-panel-button tool-button">
+                            <img id="spray-tool" src="{{=URL('static','images/tools_panel_spray_button.png')}}" class="block, fill" />
+                        </li>
+                        <li class="tool-panel-button tool-button">
+                            <img id="paint-tool" src="{{=URL('static','images/tools_panel_paint_button.png')}}" class="block, fill" />
+                        </li>
+                        <li class="tool-panel-button tool-button">
+                            <img id="colour-picker-tool" src="{{=URL('static','images/tools_panel_colour_picker_button.png')}}" class="block, fill" />
+                        </li>
+                        <li class="tool-panel-button tool-button">
+                            <img id="eraser-tool" src="{{=URL('static','images/tools_panel_eraser_button.png')}}" class="block, fill" />
+                        </li>
+                        <li class="tool-panel-button tool-button">
+                            <img id="delete-tool" src="{{=URL('static','images/tools_panel_delete_button.png')}}" class="block, fill" />
+                        </li>
+                        <li class="tool-panel-button tool-button">
+                            <img id="rectangle-tool" src="{{=URL('static','images/rect_t.bmp')}}" class="block, fill" />
+                        </li>
+			<li class="tool-panel-button tool-button">
+                            <img id="circle-tool" src="{{=URL('static','images/circle_t.bmp')}}" class="block, fill" />
+                        </li>
+			<li class="tool-panel-button tool-button">
+                            <img id="line-tool" src="{{=URL('static','images/line_t.bmp')}}" class="block, fill" />
+                        </li>
+                        <li class="tool-panel-button tool-button">
+                            <img id="text-tool" src="{{=URL('static','images/text_t.bmp')}}" class="block, fill" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 id="step-2"><a href="#">Step 2 - Save</a></h2>
+            <div>
+                <h2>Right click to save:</h2>
+                <img id="output-img" />
+            </div>
+        </div>

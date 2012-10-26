@@ -1,0 +1,9 @@
+{{extend 'layout.html'}}
+<h3 style="text-align:center">{{=p.title}}</h3><br/>
+<div style="width:900px;border:1px solid #ccc; background-color:white;padding:5px 5px 0px 5px">
+    <img src="{{=URL('download',args=p.image)}}" style="width:900px;padding:0px"/>
+</div><br/>
+<div style="font-size:30px;margin-left:50px;margin-top:10px">{{=len(l)}}</div>
+    {{for comment in c:}}
+    
+    {{pass}}

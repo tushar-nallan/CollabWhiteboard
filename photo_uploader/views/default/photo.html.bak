@@ -1,0 +1,32 @@
+{{extend 'layout.html'}}
+<html>
+<h1>Photo viewer</h1>   
+
+{{for j in form1:}}
+    {{if (j.User==a) :}}
+    {{=a}}
+    {{=j.Name}}
+    <img border="0" src="{{=URL('download',args=j.photo)}}" alt=":D" width="75" height="100">
+               </img>
+    </br>
+    <a  href="{{URL('likes',args=j.id)}}">LIKE</a>
+    {{=j.description}}
+    <br />
+    <br />
+   {{for k in form2:}}
+        {{if (j.id== k.photo_id):}}
+          {{=k.likes}}  
+        {{pass}} 
+ 
+    {{pass}}  
+    <form action="/html/tags/html_form_tag_action.cfm" method="post">
+    Comments:<br />
+    <textarea name="comments" id="comments" style="width:250px;height:120px;">
+    Comment here... 
+    </textarea><br />
+    <input type="submit" value="Submit" />
+    </form>             
+    {{pass}}
+{{pass}}
+
+</html>

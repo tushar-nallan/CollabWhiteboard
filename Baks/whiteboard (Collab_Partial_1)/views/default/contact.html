@@ -1,0 +1,43 @@
+{{response.files.append(URL('static',"css/contact.css"))}}
+{{extend 'layout.html'}}
+<div class="wrapper">
+<div class="content contact">
+       <h1>Contact us</h1>
+        
+        <form action=" " method="post"  autocomplete="on">
+            <p> <label for="username" class="iconic user" > Name <span class="required">*</span></label> <input type="text" name="username" id="username"  required="required" placeholder="Hi friend, how may we call you ?"  /> </p>
+
+            <p> <label for="usermail" class="iconic mail-alt"> E-mail address <span class="required">*</span></label> <input type="email" name="usermail" id="usermail" placeholder="We promise we hate spam as much as you do" required="required"  /> </p>
+
+            <p> <label for="usersite" class="iconic link"> Website </label> <input type="url" name="usersite" id="usersite"  placeholder="Ex: http://www.mysite.com" /> </p>
+
+            <p> <label for="subject" class="iconic quote-alt"> Subject </label> <input type="text" name="subject" id="subject"  placeholder="What would you like to talk about?" /> </p>
+
+            <p> <label for="message" class="iconic comment"> Message  <span class="required">*</span></label> <textarea placeholder="Leave us a message and we'll answer ASAP"  required="required" ></textarea> </p>
+            <p class="indication"> All fields with a <span class="required">*</span> are required</p>
+            
+            <input type="submit" value=" ★  Send the mail !" />     
+
+        </form>     
+    </div>
+    <div class="content call">
+        <h1>Call us</h1>
+        <p>We are available at -</p>
+        <table cellspacing="10px">
+            <tr><td style="color:black">Tushar</td><td> - </td><td> +91-9642964213</td></tr>
+            <tr><td style="color:black">Praneeth</td><td> - </td><td> +91-9618126701</td></tr>
+        </table>
+    </div>
+    <div class="content call">
+        <h1>Reach us</h1>
+        <center><address style="font-size:18px;line-height:1.8em">
+            OBH-379. IIIT-Hyderabad,<br/>
+            Gachibowli, Hyderabad,<br/>
+            Andhra Pradesh - 500032
+        </address></center>
+    </div>
+    <div class="content map">
+        <iframe width="300px" height="307" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Old+Boys+Hostel,+Gachibowli,+Hyderabad,+Andhra+Pradesh,+India&amp;aq=0&amp;oq=Old+Boys&amp;sll=17.445689,78.348072&amp;sspn=0.047656,0.084028&amp;ie=UTF8&amp;hq=Old+Boys+Hostel,&amp;hnear=Gachibowli,+Hyderabad,+Ranga+Reddy,+Andhra+Pradesh,+India&amp;t=m&amp;ll=17.445019,78.345995&amp;spn=0.019966,0.009508&amp;output=embed"></iframe>
+        <a target="_blank" href="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Old+Boys+Hostel,+Gachibowli,+Hyderabad,+Andhra+Pradesh,+India&amp;aq=0&amp;oq=Old+Boys&amp;sll=17.445689,78.348072&amp;sspn=0.047656,0.084028&amp;ie=UTF8&amp;hq=Old+Boys+Hostel,&amp;hnear=Gachibowli,+Hyderabad,+Ranga+Reddy,+Andhra+Pradesh,+India&amp;t=m&amp;ll=17.445019,78.345995&amp;spn=0.019966,0.009508&amp;output=embed">View in Large Map</a>
+    </div>
+</div>

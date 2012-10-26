@@ -1,0 +1,6 @@
+{{extend 'layout.html'}}
+<h1>Photo Viewer</h1>
+<h2> To Upload pics : </h2>
+<a href={{=URL(r=request,f='upload')}}>Upload</a>
+<h2> To View Photos : </h2>
+<a href={{=URL(r=request,f='show')}}>Galery</a>

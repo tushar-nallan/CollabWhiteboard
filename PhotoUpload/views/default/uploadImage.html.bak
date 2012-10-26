@@ -1,0 +1,6 @@
+{{extend 'layout.html'}}
+<fieldset style="background-color:white; border-radius:10px">
+<legend style="border-radius:10px;border:1px solid black">Upload an Image</legend>
+<h3>Upload an image</h3>
+{{=form}}
+</fieldset>

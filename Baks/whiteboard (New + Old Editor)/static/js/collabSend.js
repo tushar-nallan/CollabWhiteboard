@@ -1,0 +1,65 @@
+MessageSender = {};
+$(document).ready(function(){
+	MessageSender.state = {
+		color:"",
+		line_width:"",
+		tool:"",
+		init = function(init_color,init_line_width,init_tool){
+			color = init_color;
+			line_width = init_line_width;
+			tool = init_tool;
+		},
+		setColor = function(init_color){
+			color = init_color;
+		}
+		setLineWidth = function(init_line_width){
+			line_width = init_line_width;
+		}
+		setTool = function(init_tool){
+			tool = init_tool;
+		}
+	}
+	MessageSender.sendChange = {
+		flag : 1,
+		x : -1,
+		y : -1,
+		startDrawing = function(startx,starty){
+			flag=1;
+			x=startx;
+			y=starty;
+			$.ajax({
+				url:"/whiteboard/default/draw",
+				data:{flag:flag,x:x,y:y},
+				success : function(data){
+					//After getting response
+				}
+			});
+		},
+		draw = function(drawx,drawy){
+			flag=2;
+			dx=x-drawx;
+			dy=y-drawy;
+			x=drawx;
+			y=drawy;
+			$.ajax({
+				url:"/whiteboard/default/draw",
+				data:{flag:flag,dx:dx,dy:dy},
+				success : function(data){
+					//After getting response
+				}
+			});
+		}
+		endDrawing = function(endx,endy){
+			flag=3;
+			x=startx;
+			y=starty;
+			$.ajax({
+				url:"/whiteboard/default/draw",
+				data:{flag:flag,x:x,y:y},
+				success : function(data){
+					//After getting response
+				}
+			});
+		}
+	}
+}

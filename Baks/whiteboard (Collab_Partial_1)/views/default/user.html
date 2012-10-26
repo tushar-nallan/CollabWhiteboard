@@ -1,0 +1,263 @@
+{{extend 'layout.html'}}
+<style>
+#submit_record__row a {text-decoration:none}
+#web2py_user_form form
+{
+    background-color: #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+    background-image: -webkit-linear-gradient(top, #fff, #eee);
+    background-image: -moz-linear-gradient(top, #fff, #eee);
+    background-image: -ms-linear-gradient(top, #fff, #eee);
+    background-image: -o-linear-gradient(top, #fff, #eee);
+    background-image: linear-gradient(top, #fff, #eee);  
+    width: 400px;
+    margin: -150px 0 0 -230px;
+    padding: 30px 40px 15px 30px;
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    z-index: 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 10px;  
+    -webkit-box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),
+          0 1px 1px rgba(0, 0, 0, .2),
+          0 3px 0 #fff,
+          0 4px 0 rgba(0, 0, 0, .2),
+          0 6px 0 #fff,  
+          0 7px 0 rgba(0, 0, 0, .2);
+    -moz-box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),  
+          1px 1px   0 rgba(0,   0,   0,   .1),
+          3px 3px   0 rgba(255, 255, 255, 1),
+          4px 4px   0 rgba(0,   0,   0,   .1),
+          6px 6px   0 rgba(255, 255, 255, 1),  
+          7px 7px   0 rgba(0,   0,   0,   .1);
+    box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),  
+          0 1px 1px rgba(0, 0, 0, .2),
+          0 3px 0 #fff,
+          0 4px 0 rgba(0, 0, 0, .2),
+          0 6px 0 #fff,  
+          0 7px 0 rgba(0, 0, 0, .2);
+}
+
+#web2py_user_form form:before
+{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border: 1px dashed #ccc;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    -moz-box-shadow: 0 0 0 1px #fff;
+    -webkit-box-shadow: 0 0 0 1px #fff;
+    box-shadow: 0 0 0 1px #fff;
+}
+
+/*--------------------*/
+
+h1
+{
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);
+    text-transform: uppercase;
+    text-align: center;
+    color: #666;
+    margin: 0 0 30px 0;
+    letter-spacing: 4px;
+    font: normal 26px/1 Verdana, Helvetica;
+    position: relative;
+}
+
+h1:after, h1:before
+{
+    background-color: #777;
+    content: "";
+    height: 1px;
+    position: absolute;
+    top: 15px;
+    {{if request.args(0)=='register':}}width: 100px{{elif request.args(0)=='change_password':}}width:20px
+    {{elif request.args(0)=='request_reset_password':}}width:40px{{else:}}width:120px{{pass}};
+}
+
+h1:after
+{ 
+    background-image: -webkit-gradient(linear, left top, right top, from(#777), to(#fff));
+    background-image: -webkit-linear-gradient(left, #777, #fff);
+    background-image: -moz-linear-gradient(left, #777, #fff);
+    background-image: -ms-linear-gradient(left, #777, #fff);
+    background-image: -o-linear-gradient(left, #777, #fff);
+    background-image: linear-gradient(left, #777, #fff);      
+    right: 0;
+}
+
+h1:before
+{
+    background-image: -webkit-gradient(linear, right top, left top, from(#777), to(#fff));
+    background-image: -webkit-linear-gradient(right, #777, #fff);
+    background-image: -moz-linear-gradient(right, #777, #fff);
+    background-image: -ms-linear-gradient(right, #777, #fff);
+    background-image: -o-linear-gradient(right, #777, #fff);
+    background-image: linear-gradient(right, #777, #fff);
+    left: 0;
+}
+
+input[type=text], input[type=password]
+{
+    background: #f1f1f1 url(http://www.red-team-design.com/wp-content/uploads/2011/09/login-sprite.png) no-repeat;
+    padding: 15px 15px 15px 30px;
+    margin: 0 0 10px 0;
+    width: 353px; /* 353 + 2 + 45 = 400 */
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    -webkit-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    border: 1px solid #ccc;  
+    -webkit-transition: .3s ease-in-out;  
+    -moz-transition: .3s ease-in-out; 
+}
+
+#auth_user_email, #auth_user_first_name, #auth_user_last_name
+{
+    background-position: 5px -2px !important;
+}
+
+#auth_user_password, #auth_user_password_two__row input, #no_table_old_password, #no_table_new_password, #no_table_new_password2
+{
+    background-position: 5px -52px !important;
+}
+
+input:focus
+{
+    background-color: #fff;
+    border-color: #e8c291;
+    outline: none;
+    -moz-box-shadow: 0 0 0 1px #e8c291 inset;
+    -webkit-box-shadow: 0 0 0 1px #e8c291 inset;
+    box-shadow: 0 0 0 1px #e8c291 inset;
+    border: 1px solid #fafafa !important;
+  -webkit-box-shadow: 0px 0px 6px #007eff !important;
+  -moz-box-shadow: 0px 0px 5px #007eff !important;
+  box-shadow: 0px 0px 5px #007eff !important;
+}
+
+#submit_record__row input, #change_password_button
+{       
+    background-color: #ffb94b;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fddb6f), to(#ffb94b));
+    background-image: -webkit-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -moz-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -ms-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -o-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: linear-gradient(top, #fddb6f, #ffb94b);
+    float:center;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    
+     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;    
+    
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d69e31 #e3a037 #d5982d #e3a037;
+
+    height: 35px;
+    padding: 0;
+    {{if request.args(0)=='change_password':}}width: 150px;{{elif request.args(0)=='request_reset_password':}}width: 185px;{{else:}}width: 120px;{{pass}}
+    cursor: pointer;
+    font: bold 15px Arial, Helvetica;
+    color: #8f5a0a;
+}
+
+#submit_record__row input:hover,#submit_record__row input:focus, #change_password_button:hover, #change_password_button:focus
+{       
+    background-color: #fddb6f;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffb94b), to(#fddb6f));
+    background-image: -webkit-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -moz-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -ms-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -o-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: linear-gradient(top, #ffb94b, #fddb6f);
+}   
+
+#submit_record__row input:active, #change_password_button:active
+{       
+    outline: none;
+   
+     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;        
+}
+
+#submit_record__row input::-moz-focus-inner, #change_password_button::-moz-focus-inner
+{
+  border: none;
+}
+
+#auth_user_remember{width:auto; float}
+
+{{if request.args(0)=='login':}}
+#submit_record__row input{
+    float:right;
+    margin-top:-28px;
+}
+
+#auth_user_remember__row div{
+    margin-top:10px;
+}
+{{elif request.args(0)=='profile':}}
+#submit_record__row input{
+    float:right;
+}
+{{pass}}
+</style>
+
+<div id="web2py_user_form">
+  {{=form}}
+</div>
+
+<script language="javascript"><!--
+    jQuery("#web2py_user_form input:visible:enabled:first").focus();
+      //-->
+    $("#web2py_user_form form").prepend("<h1>{{if request.args(0)=='request_reset_password':}}Reset Password{{else:}}{{=request.args(0).replace('_',' ')}}{{pass}}</h1>");
+    
+    $("#web2py_user_form form #auth_user_first_name").attr("placeholder","Enter you First Name");
+    $("#web2py_user_form form #auth_user_last_name").attr("placeholder","Enter you Last Name");
+    $("#web2py_user_form form #auth_user_email").attr("placeholder","Enter you E-mail Id");
+    $("#web2py_user_form form #auth_user_password").attr("placeholder","Enter you Password");
+    $("#web2py_user_form form #auth_user_password_two__row input").attr("placeholder","Re-Enter you Password");
+    {{if request.args(0)=='login':}}
+        $("#web2py_user_form form #auth_user_password").after("<a style='float:right;padding-bottom:5px' href=\"{{=URL(args='request_reset_password')}}\">Forgot Password</a>");
+    {{pass}}
+    {{if request.args(0)=='register':}}
+    $("#web2py_user_form form #submit_record__row input").wrap("<center/>");{{pass}}
+    $("#auth_user_email__label").remove();
+    $("#auth_user_password__label").remove();
+    $("#auth_user_first_name__label").remove();
+    $("#auth_user_last_name__label").remove();
+    $("#auth_user_password_two__row label").remove();
+    
+    $("#no_table_old_password__label").remove();
+    $("#no_table_new_password__label").remove();
+    $("#no_table_new_password2__label").remove();
+    $("#web2py_user_form form #no_table_old_password").attr("placeholder","Enter you old Password");
+    $("#web2py_user_form form #no_table_new_password").attr("placeholder","Enter a new Password");
+    $("#web2py_user_form form #no_table_new_password2").attr("placeholder","Re-Enter the Password");
+    
+    {{if request.args(0)=='profile':}}
+        $("#submit_record__row .w2p_fw").append("<a href=\"{{=URL(args='change_password')}}\"><button id='change_password_button' style='float:left;width:150px;text-align:center'>Change Password</button></a>");
+    {{pass}}
+    {{if request.args(0)=='change_password' or request.args(0)=='request_reset_password':}}
+        $("#web2py_user_form form #submit_record__row input").wrap("<center/>");
+    {{pass}}
+</script>

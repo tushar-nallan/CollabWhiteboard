@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+<a href="{{=URL(f='uploadImage')}}" style="text-decoration:none"><div id="uploadButton" class="button" style="font-weight:bold">Upload a File</div></a>
+<div id="gallery" style="margin-top:10px"><div id="galleryOpacity"></div>
+{{for photo in photos:}}
+    <div class='imageItem'>
+        <a class="fancybox" href="{{=URL('download',args=photo.image)}}" title="{{=photo.title}}" data-fancybox-group="thumb"><img src="{{=URL('download',args=photo.image)}}" /></a>
+        <a href="{{=URL(f='picture',args=photo.id)}}" ><div style=">
+        <div class='likes-icon'> {{=len(likes)}} </div>
+        <div class='comments-icon'> {{=len(comments)}} </div>
+        </div></a>
+    </div>
+{{pass}}
+</div>

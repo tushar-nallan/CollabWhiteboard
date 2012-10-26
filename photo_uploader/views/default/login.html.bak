@@ -1,0 +1,8 @@
+<div id="login_form">
+ 
+Please fill the form
+ 
+ 
+{{=form}}
+ 
+</div>

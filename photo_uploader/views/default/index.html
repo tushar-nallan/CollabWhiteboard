@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+<h1>Photo Viewer</h1>
+<ul>
+{{for image in images:}}
+{{=LI(A(image.title, _href=URL("show", args=image.id)))}}
+{{pass}}
+</ul>

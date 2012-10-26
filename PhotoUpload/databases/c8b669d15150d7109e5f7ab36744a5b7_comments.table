@@ -1,0 +1,59 @@
+(dp1
+S'comment'
+p2
+(dp3
+S'type'
+p4
+S'string'
+p5
+sS'sortable'
+p6
+I5
+sS'sql'
+p7
+S'CHAR(512)'
+p8
+ssS'comment_time'
+p9
+(dp10
+g4
+g5
+sg6
+I4
+sg7
+S'CHAR(512)'
+p11
+ssS'pid'
+p12
+(dp13
+g4
+S'reference pictures'
+p14
+sg6
+I2
+sg7
+S'INTEGER REFERENCES pictures(id) ON DELETE CASCADE'
+p15
+ssS'id'
+p16
+(dp17
+g4
+S'id'
+p18
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p19
+ssS'uid'
+p20
+(dp21
+g4
+S'reference auth_user'
+p22
+sg6
+I3
+sg7
+S'INTEGER REFERENCES auth_user(id) ON DELETE CASCADE'
+p23
+ss.

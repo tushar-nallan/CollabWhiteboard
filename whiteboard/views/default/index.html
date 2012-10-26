@@ -1,0 +1,76 @@
+{{extend 'layout.html'}}
+<style>body{overflow:hidden !important}</style>
+<div style="height:160px;background-color:white;width:773px;margin-left:275px;margin-top:20px;border-radius: 10px; box-shadow: rgb(51, 51, 51) 0px 2px 3px;padding:20px;font-size:20px;font-family:palatino;text-align:justify">
+<div style="padding-bottom:10px;font-weight:bold;color:black">What is Collab Whiteboard?</div>
+Collab Whiteboard is a feature-rich real-time collaborative document editing tool which can enable multiple users to work on a common platform ensuring synchronization and error free data transfers.  Its a whiteboarding application with real-time canvas sharing and chat. Collaborate and sketch simultaneously, build wireframes, draw html elements or share screenshots.
+</div>
+<div id="footerwrapper" style="width: 100%; margin-top: 70px; padding-bottom: 285px; cursor: default; margin-left:210px">
+
+
+	<div id="socialfooter" class="foot" style="margin-left: 5%; width: 16%; min-height: 250px; background-color: rgb(34, 34, 34); float: left; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; box-shadow: rgb(51, 51, 51) 0px 2px 3px; z-index: 3001; position: static; background-position: initial initial; background-repeat: initial initial; ">
+		<div style="width: 102%; background: #555555; margin-top: 30px; box-shadow: 0 5px 3px #111111; margin-left: -3px; margin-right: -3px;">
+			<div style="width: 120px; margin-right: auto; margin-left: auto;"><img src="/whiteboard/static/images/landing-badges.png"></div>
+		</div>
+		<div style="width: 100%; padding: 20px;" class="footin">
+			<h2 style="color: #5193E9">Collaboration&nbsp;&nbsp;<img style="vertical-align: middle;" src="/whiteboard/static/images/fast_forward_blue.png"></h2>
+			<ul class="footlist" style="color: rgb(81, 147, 233); font-size: 15px; margin-left: 25px; line-height: 25px; margin-top: -10px; margin-right: 15px; list-style-type: square; display: none; ">
+				<li>Multiple Users Editing</li>
+				<li>Support upto 100 users &nbsp;&nbsp; on a single doc</li>
+				<li>Higly Scalable</li>
+				<li>Chat with online users</li>
+			</ul>
+		</div>
+	</div>
+
+
+
+
+	<div id="studyfooter" class="foot" style="margin-left: 5%; width: 18%; min-height: 250px; background-color: rgb(34, 34, 34); float: left; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; box-shadow: rgb(51, 51, 51) 0px 2px 3px; z-index: 3002; margin-top: 0px; position: static; background-position: initial initial; background-repeat: initial initial; ">
+		<div style="width: 102%; background: #555555; margin-top: 30px; box-shadow: 0 5px 3px #111111; margin-left: -3px; margin-right: -3px;">
+			<div style="width: 120px; margin-right: auto; margin-left: auto;"><img src="/whiteboard/static/images/landing-analytics.png"></div>
+		</div>
+		<div style="width: 100%; padding: 20px;" class="footin">
+			<h2 style="color: #C83030;">Extensive Tools&nbsp;&nbsp;<img src="/whiteboard/static/images/fast_forward_red.png" style="vertical-align: middle;"></h2>
+			<ul class="footlist" style="color: rgb(200, 48, 48); font-size: 15px; margin-left: 25px; line-height: 25px; margin-top: -10px; margin-right: 30px; list-style-type: square; display: none; ">
+				<li>Basic Paint Tools</li>
+				<li>Layering Options</li>
+				<li>Effects like Blur, Sharpen..</li>
+				<li>Complex Shapes</li>
+				<li>Move, Scale and Rotate</li>
+			</ul>
+		</div>
+	</div>
+	<div id="analyticsfooter" class="foot" style="margin-left: 5%; width: 16%; min-height: 250px; background-color: rgb(34, 34, 34); float: left; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; box-shadow: rgb(51, 51, 51) 0px 2px 3px; z-index: 3003; margin-top: 0px; position: static; background-position: initial initial; background-repeat: initial initial; ">
+		<div style="width: 102%; background: #555555; margin-top: 30px; box-shadow: 0 5px 3px #111111; margin-left: -3px; margin-right: -3px;">
+			<div style="width: 120px; margin-right: auto; margin-left: auto;"><img src="/whiteboard/static/images/landing-test.png"></div>
+		</div>
+		<div style="width: 100%; padding: 20px;" class="footin">
+			<h2 style="color: green;">Cool Features&nbsp;&nbsp;<img src="/whiteboard/static/images/fast_forward_green.png" style="vertical-align: middle;"></h2>
+			<ul class="footlist" style="color: green; font-size: 15px; margin-left: 25px; line-height: 25px; margin-top: -10px; margin-right: 15px; list-style-type: square; display: none; ">
+				<li>24x7 availability</li>
+				<li>Share on Facebook</li>
+				<li>Export/Import Options</li>
+				<li>Offline Editing</li>
+				<li>Much more..</li>
+			</ul>
+		</div>
+	</div>
+<script>
+$(document).ready(function(){
+	$("div.foot").hover(function(){
+		$(this).css('position','relative');
+		$("div#footerwrapper").css('margin-top','-45px');
+		$("div#footerwrapper").css('padding-bottom','400px');
+		$("div.foot").not($(this)).css('margin-top','115px');
+		//$("html, body").animate({ scrollTop: $(document).height()},"slow");
+		$(this).children("div.footin:eq(0)").children("ul").show();
+	}, function(){
+		$(this).css('position','static');
+		$("div#footerwrapper").css('margin-top','70px');
+		$("div.foot").not($(this)).css('margin-top','0');
+		$("div#footerwrapper").css('padding-bottom','285px');
+		$(this).children("div.footin:eq(0)").children("ul").hide();
+	});
+});
+</script>
+</div>

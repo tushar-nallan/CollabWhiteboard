@@ -1,0 +1,24 @@
+{{extend 'layout.html'}}
+<h1>Photo Viewer </h1>
+<h1>Image: {{=image.title}}</h1>
+<center>
+<img width="200px"
+     src="{{=URL('download', args=image.file)}}" />
+</center>
+{{if len(comments):}}
+  <h2>Comments</h2><br /><p>
+  {{for comment in comments:}}
+    <p>{{=comment.author}} says <i>{{=comment.body}}</i></p>
+  {{pass}}</p>
+{{else:}}
+  <p>No comments posted yet</p>
+{{pass}}
+<h2>Post a comment</h2>
+{{=form1}}
+<h2>Like</h2>
+{{=form2}}
+<p> {{=len(likes)}} people like this</p>
+
+{{if image.User == auth.user.first_name :}}
+{{=A('Delete',_href=URL('delete',args=image.id))}}
+{{pass}}

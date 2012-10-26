@@ -1,0 +1,82 @@
+timestamp: 2012-08-29T23:19:55.827400
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2012-08-29T23:19:56.098631
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-08-29T23:19:56.307273
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-08-29T23:19:56.900644
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2012-08-29T23:19:57.505920
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-08-29T23:19:57.738281
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2012-08-29T23:47:57.685521
+CREATE TABLE pictures(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512),
+    date DATE,
+    image CHAR(512)
+);
+success!
+timestamp: 2012-08-29T23:47:58.045101
+CREATE TABLE comments(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pId INTEGER REFERENCES pictures(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-08-30T00:01:45.340684
+ALTER TABLE comments ADD comment CHAR(512);
+timestamp: 2012-08-30T00:01:45.693605
+ALTER TABLE comments ADD comment_time CHAR(512);
+timestamp: 2012-08-30T00:01:45.880752
+ALTER TABLE comments ADD uid INTEGER REFERENCES auth_user(id) ON DELETE CASCADE;
+timestamp: 2012-08-30T00:01:46.212125
+CREATE TABLE likes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pId INTEGER REFERENCES pictures(id) ON DELETE CASCADE,
+    uId INTEGER REFERENCES auth_user(id) ON DELETE CASCADE
+);
+success!
